@@ -1,0 +1,133 @@
+/* =====================================================================
+   🎨  Wedding site colours
+   ---------------------------------------------------------------------
+   Each palette needs only 7 colours. Every other shade on the page
+   (envelope folds, seal highlights, gradients, veils…) is derived from
+   these automatically.
+
+   Try a palette without editing anything: open the site with
+       index.html?palette=sage
+   Make one permanent: change the `data-palette` value on the <html>
+   tag in index.html, or edit the default block (:root) below.
+
+   The 7 roles:
+     --dark       hero background, night section, dark text areas
+     --primary    envelope, headings, buttons, venue section
+     --secondary  envelope lining, program section, date on the card
+     --accent     wax seal, gold rules, highlights on dark backgrounds
+     --light      paper sections background
+     --paper      invitation card
+     --ink        body text on light backgrounds
+   ===================================================================== */
+
+/* Autumn — from the first Pinterest pin */
+:root, [data-palette="autumn"] {
+  --dark: #382C23;        /* Charcoal Brown */
+  --primary: #9C5D3C;     /* Terracotta */
+  --secondary: #6E6B41;   /* Olive Green */
+  --accent: #B07E1E;      /* Mustard Gold */
+  --light: #D1C7B5;       /* Warm Cream */
+  --paper: #ebe4d6;
+  --ink: #382C23;
+}
+
+/* Plum, Lilac & Muted Peach — from the second Pinterest pin
+   Plum 5B2D4A · Lilac C8B1D6 · Muted Peach E8B4A3 · Warm Ivory F7EDE4 */
+[data-palette="plum"] {
+  --dark: #2e1826;        /* deep plum (night) */
+  --primary: #E8B4A3;     /* Muted Peach (main colour) */
+  --secondary: #8e73a3;   /* Lilac, deepened so it reads as text */
+  --accent: #5B2D4A;      /* Plum */
+  --light: #ece2ec;       /* Lilac washed into ivory */
+  --paper: #F7EDE4;       /* Warm Ivory */
+  --ink: #3a2232;
+}
+
+/* Plum, Taupe & Cream — from the third Pinterest pin (gold lettering as accent)
+   Colours sampled from the image; the pin gives no hex codes. */
+[data-palette="taupe"] {
+  --dark: #2a1216;        /* deepest plum (night) */
+  --primary: #4a1f27;     /* Plum */
+  --secondary: #85786a;   /* Taupe */
+  --accent: #c4a061;      /* Gold lettering */
+  --light: #e3d9c8;       /* Cream */
+  --paper: #f1eadf;       /* lighter cream for the card */
+  --ink: #2e1a1d;
+}
+
+/* Vintage sepia — walnut, oxblood, faded Nile green */
+[data-palette="sepia"] {
+  --dark: #2b211b;
+  --primary: #7a3b2e;
+  --secondary: #4c6461;
+  --accent: #b8955a;
+  --light: #efe4cc;
+  --paper: #f4ead6;
+  --ink: #3a2a1f;
+}
+
+/* Nile dusk — indigo night, violet, apricot sun */
+[data-palette="dusk"] {
+  --dark: #1f2140;
+  --primary: #4a3a69;
+  --secondary: #2c5a60;
+  --accent: #d9b26f;
+  --light: #f2edf5;
+  --paper: #faf6f2;
+  --ink: #2a2440;
+}
+
+/* Sage & blush — soft garden wedding */
+[data-palette="sage"] {
+  --dark: #2f3a33;
+  --primary: #b9786f;
+  --secondary: #7d8f74;
+  --accent: #c9a96e;
+  --light: #e9e4dc;
+  --paper: #f6f2ec;
+  --ink: #2f3a33;
+}
+
+/* Emerald & gold — classic and rich */
+[data-palette="emerald"] {
+  --dark: #12231e;
+  --primary: #1f5c4a;
+  --secondary: #6b4f3a;
+  --accent: #c8a24a;
+  --light: #ece6d8;
+  --paper: #f7f2e6;
+  --ink: #1d2a25;
+}
+
+/* Navy & champagne — evening formal */
+[data-palette="navy"] {
+  --dark: #1b2236;
+  --primary: #2e3d63;
+  --secondary: #8a7a63;
+  --accent: #cfae7a;
+  --light: #e8e3da;
+  --paper: #f6f2ea;
+  --ink: #1b2236;
+}
+
+/* ---------------------------------------------------------------------
+   Derived shades — no need to edit these.
+   --------------------------------------------------------------------- */
+:root, [data-palette] {
+  --dark-deep:       color-mix(in srgb, var(--dark) 78%, black);
+  --dark-glow:       color-mix(in srgb, var(--dark) 82%, var(--primary));
+  --primary-light:   color-mix(in srgb, var(--primary) 85%, white);
+  --primary-dark:    color-mix(in srgb, var(--primary) 85%, black);
+  --primary-deep:    color-mix(in srgb, var(--primary) 70%, black);
+  --primary-soft:    color-mix(in srgb, var(--primary) 70%, var(--light));
+  --secondary-dark:  color-mix(in srgb, var(--secondary) 80%, black);
+  --accent-bright:   color-mix(in srgb, var(--accent) 70%, #fff3c4);
+  --accent-dark:     color-mix(in srgb, var(--accent) 75%, black);
+  --accent-deep:     color-mix(in srgb, var(--accent) 60%, black);
+  --accent-light:    color-mix(in srgb, var(--accent) 50%, var(--paper));
+  --accent-soft:     color-mix(in srgb, var(--accent) 80%, var(--primary));
+  --light-dim:       color-mix(in srgb, var(--light) 88%, var(--dark));
+  --ink-soft:        color-mix(in srgb, var(--ink) 72%, var(--light));
+  --on-dark:         color-mix(in srgb, var(--paper) 92%, var(--accent));
+  --on-primary:      #fffaf0;
+}

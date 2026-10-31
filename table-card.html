@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-palette="taupe">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بطاقة الطاولة — شاركونا صوركم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="colors.css">
+<script>
+  // Same palettes as the site:  table-card.html?palette=autumn
+  (function () {
+    var p = new URLSearchParams(location.search).get("palette");
+    if (p) document.documentElement.setAttribute("data-palette", p);
+  })();
+</script>
+<style>
+  /* Four A6 table cards on one A4 sheet. Print at 100% scale, then cut on the faint lines. */
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #9a9a9a; }
+  body {
+    font-family: 'El Messiri', 'Segoe UI', Tahoma, sans-serif; color: var(--ink);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .toolbar { position: sticky; top: 0; z-index: 2; display: flex; justify-content: center; gap: .8rem; padding: .8rem; background: #3a3a3a; }
+  .toolbar button { font: inherit; font-size: 1.05rem; padding: .55rem 1.6rem; border: 0; border-radius: 999px; background: var(--primary); color: var(--on-primary); cursor: pointer; }
+  .toolbar span { color: #ddd; align-self: center; font-size: .95rem; }
+
+  .sheet {
+    width: 210mm; height: 297mm; margin: 1.5rem auto; background: #fff;
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  }
+  .cell { position: relative; padding: 6mm; }
+  /* faint cut lines between the four cards */
+  .cell:nth-child(odd) { border-left: .2mm dashed #c9c9c9; }
+  .cell:nth-child(-n+2) { border-bottom: .2mm dashed #c9c9c9; }
+
+  .card {
+    height: 100%; border-radius: 6mm; position: relative; overflow: hidden;
+    background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 7mm 6mm;
+    border: .5mm solid var(--primary);
+  }
+  .card::before { /* inner gold rule */
+    content: ""; position: absolute; inset: 2.2mm; border-radius: 4.5mm; border: .3mm solid var(--accent); pointer-events: none;
+  }
+  .cam {
+    width: 15mm; height: 15mm; border-radius: 50%; display: grid; place-items: center;
+    background: var(--primary); color: var(--on-primary); margin-bottom: 3mm;
+  }
+  .cam svg { width: 8mm; height: 8mm; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+  h1 { font-weight: 700; font-size: 9.5mm; line-height: 1.25; color: var(--primary); }
+  .lead { font-size: 4mm; line-height: 1.7; margin: 2mm 0 4mm; max-width: 72mm; }
+  .qr { width: 40mm; padding: 2.5mm; background: #fff; border-radius: 3mm; border: .3mm solid color-mix(in srgb, var(--ink) 18%, transparent); }
+  .qr img { width: 100%; display: block; }
+  .scan { font-size: 3.9mm; font-weight: 600; margin-top: 3mm; color: var(--ink); }
+  .names { font-family: 'Aref Ruqaa', 'El Messiri', serif; font-weight: 700; font-size: 7mm; color: var(--primary); margin-top: 4mm; line-height: 1.2; }
+  .names .heart { display: inline-block; width: 3mm; height: 2.8mm; margin: 0 1.2mm; vertical-align: middle; fill: var(--accent); }
+  .tag { direction: ltr; font-size: 3.3mm; color: var(--ink-soft); margin-top: 1mm; }
+
+  @media print {
+    html, body { background: #fff; }
+    .toolbar { display: none; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="window.print()">اطبع البطاقات</button>
+  <span>ورقة A4 واحدة = ٤ بطاقات · اطبع بمقياس 100٪ ثم قصّ على الخطوط</span>
+</div>
+
+<main class="sheet" id="sheet"></main>
+
+<template id="card-tpl">
+  <div class="cell">
+    <div class="card">
+      <div class="cam" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M6 16.5c0-1.9 1.6-3.5 3.5-3.5h6l3-5h11l3 5h6c1.9 0 3.5 1.6 3.5 3.5v20c0 1.9-1.6 3.5-3.5 3.5h-29C7.6 40 6 38.4 6 36.5z"/><circle cx="24" cy="26" r="7.5"/></svg>
+      </div>
+      <h1>شاركونا صوركم</h1>
+      <p class="lead">صوّرتم لحظة جميلة؟ ارفعوها في ألبوم الزفاف المشترك</p>
+      <div class="qr"><img src="images/album-qr.svg" alt="رمز QR لألبوم صور الزفاف"></div>
+      <p class="scan">امسحوا الرمز بكاميرا الهاتف</p>
+      <p class="names">محمود<svg class="heart" viewBox="0 0 24 22"><path d="M12 21.2C5.6 16.3 1.5 12.6 1.5 7.6 1.5 4.2 4.1 1.6 7.3 1.6c2 0 3.7 1 4.7 2.6 1-1.6 2.7-2.6 4.7-2.6 3.2 0 5.8 2.6 5.8 6 0 5-4.1 8.7-10.5 13.6z"/></svg>إسراء</p>
+      <p class="tag">#ForeverStartsHere</p>
+    </div>
+  </div>
+</template>
+
+<script>
+  const tpl = document.getElementById("card-tpl");
+  const sheet = document.getElementById("sheet");
+  for (let i = 0; i < 4; i++) sheet.appendChild(tpl.content.cloneNode(true));
+</script>
+</body>
+</html>
