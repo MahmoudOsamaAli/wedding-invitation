@@ -224,7 +224,8 @@
   .letter-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 560px); justify-content: center; align-items: center; gap: clamp(1.2rem, 6vw, 4.5rem); }
   .arch { border-radius: var(--arch); overflow: hidden; }
   .letter .arch { width: 100%; aspect-ratio: 3 / 4; outline: 1px solid var(--accent); outline-offset: 8px; }
-  .letter .arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+  .letter .arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; filter: none; }   /* our own photo: natural colours */
+  .letter .arch::after { display: none; }   /* no darkened corners either */
   .letter p { font-size: clamp(1.1rem, 3.6vw, 1.25rem); color: var(--ink); }
   .letter p + p { margin-top: 1rem; }
   .letter .verse { font-family: var(--cal); font-size: clamp(1.6rem, 5.5vw, 2.2rem); color: var(--primary); margin-bottom: 1.4rem; line-height: 1.6; }
