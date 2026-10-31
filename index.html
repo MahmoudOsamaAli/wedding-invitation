@@ -224,7 +224,7 @@
   .letter-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 560px); justify-content: center; align-items: center; gap: clamp(1.2rem, 6vw, 4.5rem); }
   .arch { border-radius: var(--arch); overflow: hidden; }
   .letter .arch { width: 100%; aspect-ratio: 3 / 4; outline: 1px solid var(--accent); outline-offset: 8px; }
-  .letter .arch img { width: 100%; height: 100%; object-fit: cover; }
+  .letter .arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
   .letter p { font-size: clamp(1.1rem, 3.6vw, 1.25rem); color: var(--ink); }
   .letter p + p { margin-top: 1rem; }
   .letter .verse { font-family: var(--cal); font-size: clamp(1.6rem, 5.5vw, 2.2rem); color: var(--primary); margin-bottom: 1.4rem; line-height: 1.6; }
@@ -463,7 +463,7 @@
 <!-- ============ الرسالة ============ -->
 <section class="letter" id="letter">
   <div class="wrap letter-grid">
-    <div class="arch soft"><img id="letter-img" alt="خاتما الزفاف بين الورود"></div>
+    <div class="arch soft"><img id="letter-img" alt="يدا العروسين بخاتمي الزفاف وباقة الورد"></div>
     <div class="letter-text">
       <p class="verse">﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾</p>
       <p>يسعدنا من كل قلوبنا أن ندعوكم لمشاركتنا واحداً من أسعد أيام حياتنا. لقد صنع حبكم وضحكاتكم ودعمكم الكثير مما نحن عليه، ولا نتخيل أن نبدأ هذا الفصل الجديد من دونكم.</p>
@@ -653,7 +653,7 @@ const WEDDING = {
   // Shared Google Photos album for guests' photos (QR code: images/album-qr.svg)
   albumLink:  "https://photos.app.goo.gl/YCFLrLkGrUbQ4pTo9",
 
-  letterImage: "images/stock/rings-flowers.jpg",
+  letterImage: "images/intro-image.jpeg",
   gallery: [
     { src: "images/venue/garden-sunset.jpg",   caption: "الحديقة وقت الغروب" },
     { src: "images/venue/nile-arch.jpg",       caption: "الممشى المطل على النيل" },
